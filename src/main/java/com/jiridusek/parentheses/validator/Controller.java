@@ -74,21 +74,12 @@ public class Controller {
      */
     private void validate(Validator validator, String line) {
         // notify user of used method of validation
-        if (validator instanceof StringValidator) {
-            System.out.println("\nValidating using String methods...");
-        } else if (validator instanceof DequeValidator) {
-            System.out.println("\nValidating using Deque interface...");
-        } else if (validator instanceof RegexValidator) {
-            System.out.println("\nValidating using regex...");
-        } else if (validator instanceof StreamValidator){
-            System.out.println("\nValidating using Stream API...");
-        } else {
-            System.out.println("\nValidating using unknown method..."); // will not happen but...
-        }
+        System.out.println(format("\nGoing to validate via {0}...", validator.getClass().getSimpleName()));
 
         long start = Instant.now().toEpochMilli();
         boolean isValid = validator.validateParentheses(line); // validate input based on validator instance
         long end = Instant.now().toEpochMilli();
+
         // notify user of validation result and execution time
         System.out.println(format("Expression {0} is {1}.", line, isValid ? "valid" : "invalid"));
         System.out.println(format("Execution time {0} milliseconds.", end - start));
