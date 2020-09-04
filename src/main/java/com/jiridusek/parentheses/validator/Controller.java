@@ -54,26 +54,36 @@ public class Controller {
      */
     private void process(String line) {
         // validate using String methods
-        System.out.println("\nValidating using String methods...");
         validate(new StringValidator(), line);
 
         // validate using Deque interface
-        System.out.println("\nValidating using Deque interface...");
         validate(new DequeValidator(), line);
 
         // validate using regular expressions
-        System.out.println("\nValidating using regex...");
         validate(new RegexValidator(), line);
 
         // validate using Stream API
-        System.out.println("\nValidating using Stream API...");
         validate(new StreamValidator(), line);
     }
 
     private void validate(Validator validator, String line) {
+        // notify user of used method of validation
+        if (validator instanceof StringValidator) {
+            System.out.println("\nValidating using String methods...");
+        } else if (validator instanceof DequeValidator) {
+            System.out.println("\nValidating using Deque interface...");
+        } else if (validator instanceof RegexValidator) {
+            System.out.println("\nValidating using regex...");
+        } else if (validator instanceof StreamValidator){
+            System.out.println("\nValidating using Stream API...");
+        } else {
+            System.out.println("\nValidating using unknown method..."); // will not happen but...
+        }
+
         long start = Instant.now().toEpochMilli();
-        boolean isValid = validator.validateParentheses(line);
+        boolean isValid = validator.validateParentheses(line); // validate input using various methods
         long end = Instant.now().toEpochMilli();
+        // notify user of validation result and execution time
         System.out.println(format("Expression {0} is {1}.", line, isValid ? "valid" : "invalid"));
         System.out.println(format("Execution time {0} milliseconds.", end - start));
     }
