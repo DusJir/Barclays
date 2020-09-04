@@ -71,13 +71,9 @@ public class Controller {
     }
 
     private void validate(Validator validator, String line) {
-        long start;
-        long end;
-        boolean isValid;
-
-        start = Instant.now().toEpochMilli();
-        isValid = validator.validateParentheses(line);
-        end = Instant.now().toEpochMilli();
+        long start = Instant.now().toEpochMilli();
+        boolean isValid = validator.validateParentheses(line);
+        long end = Instant.now().toEpochMilli();
         System.out.println(format("Expression {0} is {1}.", line, isValid ? "valid" : "invalid"));
         System.out.println(format("Execution time {0} milliseconds.", end - start));
     }
