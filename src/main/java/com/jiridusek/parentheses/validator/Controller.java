@@ -50,7 +50,7 @@ public class Controller {
      * This method processes user's input.
      * It calls 4 alternative methods to validate the input.
      *
-     * @param line String An user's input
+     * @param line String User's input
      */
     private void process(String line) {
         // validate using String methods
@@ -66,6 +66,12 @@ public class Controller {
         validate(new StreamValidator(), line);
     }
 
+    /**
+     * Wrapper method for input validations
+     *
+     * @param validator Validator Implementation of Validator interface
+     * @param line String User's input
+     */
     private void validate(Validator validator, String line) {
         // notify user of used method of validation
         if (validator instanceof StringValidator) {
@@ -81,7 +87,7 @@ public class Controller {
         }
 
         long start = Instant.now().toEpochMilli();
-        boolean isValid = validator.validateParentheses(line); // validate input using various methods
+        boolean isValid = validator.validateParentheses(line); // validate input based on validator instance
         long end = Instant.now().toEpochMilli();
         // notify user of validation result and execution time
         System.out.println(format("Expression {0} is {1}.", line, isValid ? "valid" : "invalid"));
