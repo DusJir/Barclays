@@ -75,15 +75,10 @@ public class Controller {
         long end;
         boolean isValid;
 
-        final String VALID = "valid";
-        final String INVALID = "invalid";
-        final String RESULT_MSG = "Expression {0} is {1}.";
-        final String EXECUTION_MSG = "Execution time {0} milliseconds";
-
         start = Instant.now().toEpochMilli();
         isValid = validator.validateParentheses(line);
         end = Instant.now().toEpochMilli();
-        System.out.println(format(RESULT_MSG, line, isValid ? VALID : INVALID));
-        System.out.println(format(EXECUTION_MSG, end - start));
+        System.out.println(format("Expression {0} is {1}.", line, isValid ? "valid" : "invalid"));
+        System.out.println(format("Execution time {0} milliseconds.", end - start));
     }
 }
