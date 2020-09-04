@@ -47,54 +47,54 @@ class ControllerTest {
     @Test
     void validateParenthesesRegex() {
         // assert statements
-        assertTrue(controller.validateParentheses(EMPTY));
-        assertFalse(controller.validateParentheses(LEFT_PARENTHESIS));
-        assertFalse(controller.validateParentheses(RIGHT_PARENTHESIS));
-        assertTrue(controller.validateParentheses(CLOSED_PARENTHESIS));
-        assertFalse(controller.validateParentheses(REDUNDANT_LEFT));
-        assertFalse(controller.validateParentheses(REDUNDANT_RIGHT));
-        assertFalse(controller.validateParentheses(REDUNDANT_LEFT_WITH_LEAD));
-        assertFalse(controller.validateParentheses(REDUNDANT_LEFT_WITH_TRAIL));
-        assertFalse(controller.validateParentheses(REDUNDANT_RIGHT_WITH_LEAD));
-        assertFalse(controller.validateParentheses(REDUNDANT_RIGHT_WITH_TRAIL));
-        assertTrue(controller.validateParentheses(NO_PARENTHESIS));
-        assertTrue(controller.validateParentheses(CLOSED_WITH_TRAIL));
-        assertTrue(controller.validateParentheses(CLOSED_WITH_LEAD));
+        assertTrue(controller.validateParenthesesRegex(EMPTY));
+        assertFalse(controller.validateParenthesesRegex(LEFT_PARENTHESIS));
+        assertFalse(controller.validateParenthesesRegex(RIGHT_PARENTHESIS));
+        assertTrue(controller.validateParenthesesRegex(CLOSED_PARENTHESIS));
+        assertFalse(controller.validateParenthesesRegex(REDUNDANT_LEFT));
+        assertFalse(controller.validateParenthesesRegex(REDUNDANT_RIGHT));
+        assertFalse(controller.validateParenthesesRegex(REDUNDANT_LEFT_WITH_LEAD));
+        assertFalse(controller.validateParenthesesRegex(REDUNDANT_LEFT_WITH_TRAIL));
+        assertFalse(controller.validateParenthesesRegex(REDUNDANT_RIGHT_WITH_LEAD));
+        assertFalse(controller.validateParenthesesRegex(REDUNDANT_RIGHT_WITH_TRAIL));
+        assertTrue(controller.validateParenthesesRegex(NO_PARENTHESIS));
+        assertTrue(controller.validateParenthesesRegex(CLOSED_WITH_TRAIL));
+        assertTrue(controller.validateParenthesesRegex(CLOSED_WITH_LEAD));
     }
 
     @Test
     void validateParenthesesDeque() {
         // assert statements
-        assertTrue(controller.validateParentheses(EMPTY));
-        assertFalse(controller.validateParentheses(LEFT_PARENTHESIS));
-        assertFalse(controller.validateParentheses(RIGHT_PARENTHESIS));
-        assertTrue(controller.validateParentheses(CLOSED_PARENTHESIS));
-        assertFalse(controller.validateParentheses(REDUNDANT_LEFT));
-        assertFalse(controller.validateParentheses(REDUNDANT_RIGHT));
-        assertFalse(controller.validateParentheses(REDUNDANT_LEFT_WITH_LEAD));
-        assertFalse(controller.validateParentheses(REDUNDANT_LEFT_WITH_TRAIL));
-        assertFalse(controller.validateParentheses(REDUNDANT_RIGHT_WITH_LEAD));
-        assertFalse(controller.validateParentheses(REDUNDANT_RIGHT_WITH_TRAIL));
-        assertTrue(controller.validateParentheses(NO_PARENTHESIS));
-        assertTrue(controller.validateParentheses(CLOSED_WITH_TRAIL));
-        assertTrue(controller.validateParentheses(CLOSED_WITH_LEAD));
+        assertTrue(controller.validateParenthesesDeque(EMPTY));
+        assertFalse(controller.validateParenthesesDeque(LEFT_PARENTHESIS));
+        assertFalse(controller.validateParenthesesDeque(RIGHT_PARENTHESIS));
+        assertTrue(controller.validateParenthesesDeque(CLOSED_PARENTHESIS));
+        assertFalse(controller.validateParenthesesDeque(REDUNDANT_LEFT));
+        assertFalse(controller.validateParenthesesDeque(REDUNDANT_RIGHT));
+        assertFalse(controller.validateParenthesesDeque(REDUNDANT_LEFT_WITH_LEAD));
+        assertFalse(controller.validateParenthesesDeque(REDUNDANT_LEFT_WITH_TRAIL));
+        assertFalse(controller.validateParenthesesDeque(REDUNDANT_RIGHT_WITH_LEAD));
+        assertFalse(controller.validateParenthesesDeque(REDUNDANT_RIGHT_WITH_TRAIL));
+        assertTrue(controller.validateParenthesesDeque(NO_PARENTHESIS));
+        assertTrue(controller.validateParenthesesDeque(CLOSED_WITH_TRAIL));
+        assertTrue(controller.validateParenthesesDeque(CLOSED_WITH_LEAD));
     }
 
     @Test
     void validateParenthesesStream() {
         // assert statements
-        assertTrue(controller.validateParentheses(EMPTY));
-        assertFalse(controller.validateParentheses(LEFT_PARENTHESIS));
-        assertFalse(controller.validateParentheses(RIGHT_PARENTHESIS));
-        assertTrue(controller.validateParentheses(CLOSED_PARENTHESIS));
-        assertFalse(controller.validateParentheses(REDUNDANT_LEFT));
-        assertFalse(controller.validateParentheses(REDUNDANT_RIGHT));
-        assertFalse(controller.validateParentheses(REDUNDANT_LEFT_WITH_LEAD));
-        assertFalse(controller.validateParentheses(REDUNDANT_LEFT_WITH_TRAIL));
-        assertFalse(controller.validateParentheses(REDUNDANT_RIGHT_WITH_LEAD));
-        assertFalse(controller.validateParentheses(REDUNDANT_RIGHT_WITH_TRAIL));
-        assertTrue(controller.validateParentheses(NO_PARENTHESIS));
-        assertTrue(controller.validateParentheses(CLOSED_WITH_TRAIL));
-        assertTrue(controller.validateParentheses(CLOSED_WITH_LEAD));
+        assertTrue(controller.validateParenthesesStream(EMPTY));
+        assertFalse(controller.validateParenthesesStream(LEFT_PARENTHESIS));
+        assertFalse(controller.validateParenthesesStream(RIGHT_PARENTHESIS));
+        assertTrue(controller.validateParenthesesStream(CLOSED_PARENTHESIS));
+        assertFalse(controller.validateParenthesesStream(REDUNDANT_LEFT));
+        assertFalse(controller.validateParenthesesStream(REDUNDANT_RIGHT));
+        assertFalse(controller.validateParenthesesStream(REDUNDANT_LEFT_WITH_LEAD));
+        assertFalse(controller.validateParenthesesStream(REDUNDANT_LEFT_WITH_TRAIL));
+        assertFalse(controller.validateParenthesesStream(REDUNDANT_RIGHT_WITH_LEAD));
+        assertFalse(controller.validateParenthesesStream(REDUNDANT_RIGHT_WITH_TRAIL));
+        assertTrue(controller.validateParenthesesStream(NO_PARENTHESIS));
+        assertTrue(controller.validateParenthesesStream(CLOSED_WITH_TRAIL));
+        assertTrue(controller.validateParenthesesStream(CLOSED_WITH_LEAD));
     }
 }
