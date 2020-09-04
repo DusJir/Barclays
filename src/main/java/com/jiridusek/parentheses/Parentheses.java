@@ -1,6 +1,6 @@
 package com.jiridusek.parentheses;
 
-import com.jiridusek.parentheses.controller.Controller;
+import com.jiridusek.parentheses.validator.Controller;
 import com.jiridusek.parentheses.view.ConsoleUI;
 
 /**
