@@ -24,7 +24,7 @@ import static java.text.MessageFormat.format;
 public class Controller {
 
     private final View view;
-    private final static String CMD_QUIT = "quit";
+    private static final String CMD_QUIT = "quit";
 
     public Controller(View view) {
         this.view = view;
@@ -56,42 +56,47 @@ public class Controller {
      *
      * @param line String An user's input
      */
-    void process(String line) {
+    private void process(String line) {
         long start;
         long end;
         boolean isValid;
+
+        final String VALID = "valid";
+        final String INVALID = "invalid";
+        final String RESULT_MSG = "Expression {0} is {1}.";
+        final String EXECUTION_MSG = "Execution time {0} milliseconds";
 
         // validate using String methods
         System.out.println("\nValidating using String methods...");
         start = Instant.now().toEpochMilli();
         isValid = validateParentheses(line);
         end = Instant.now().toEpochMilli();
-        System.out.println(format("Expression {0} is {1}.", line, isValid ? "valid" : "invalid"));
-        System.out.println(format("Execution time {0} milliseconds", end - start));
+        System.out.println(format(RESULT_MSG, line, isValid ? VALID : INVALID));
+        System.out.println(format(EXECUTION_MSG, end - start));
 
         // validate using regex
         System.out.println("\nValidating using regex...");
         start = Instant.now().toEpochMilli();
         isValid = validateParenthesesRegex(line);
         end = Instant.now().toEpochMilli();
-        System.out.println(format("Expression {0} is {1}.", line, isValid ? "valid" : "invalid"));
-        System.out.println(format("Execution time {0} milliseconds", end - start));
+        System.out.println(format(RESULT_MSG, line, isValid ? VALID : INVALID));
+        System.out.println(format(EXECUTION_MSG, end - start));
 
         // validate using Deque
         System.out.println("\nValidating using Deque...");
         start = Instant.now().toEpochMilli();
         isValid = validateParenthesesDeque(line);
         end = Instant.now().toEpochMilli();
-        System.out.println(format("Expression {0} is {1}.", line, isValid ? "valid" : "invalid"));
-        System.out.println(format("Execution time {0} milliseconds", end - start));
+        System.out.println(format(RESULT_MSG, line, isValid ? VALID : INVALID));
+        System.out.println(format(EXECUTION_MSG, end - start));
 
         // validate using stream
         System.out.println("\nValidating using Stream API...");
         start = Instant.now().toEpochMilli();
         isValid = validateParenthesesStream(line);
         end = Instant.now().toEpochMilli();
-        System.out.println(format("Expression {0} is {1}.", line, isValid ? "valid" : "invalid"));
-        System.out.println(format("Execution time {0} milliseconds", end - start));
+        System.out.println(format(RESULT_MSG, line, isValid ? VALID : INVALID));
+        System.out.println(format(EXECUTION_MSG, end - start));
         System.out.println("------------------------------------------");
     }
 
@@ -215,7 +220,7 @@ public class Controller {
 
         // I found this solution here:
         // https://codereview.stackexchange.com/questions/106219/checking-balanced-parenthesis-string
-        // IMO it is pretty smart but hard to read
+        // IMO it does what it is supposed to do in two lines of code (which is nice) but it is hard to read
         return line.chars().mapToDouble(i -> i == '(' ? 1 : i == ')' ? -1 : 0).reduce(0,
             (a, b) -> a == 0 && b == -1 ? Double.NaN : a + b) == 0;
     }
